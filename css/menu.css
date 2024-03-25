@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.MENU_container {
+    box-sizing: border-box;
+    padding: 0  2.5% 30px;
+}
+
+.MEMU_sub {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.MEMU_sub img {
+    max-width: 750px;
+    width: 100%;
+    height: auto;
+}
+
+.MENU_container h2 {
+    padding-top: 30px;
+}
+
+.menu_lineup {
+    max-width: 750px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5em;  /*24px*/
+    margin: 0 auto;
+}
+
+.product {
+    display: block;
+    text-align: center;
+}
+
+.product P {
+    line-height: 1.2;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 5px;
+}
+
+/*  レスポンシブル  */
+
+@media (max-width: 600px) {
+    .MENU_container p img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+    }
+    
+    .menu_lineup {
+        max-width: 500px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

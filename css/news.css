@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.NEWS_container h2 {
+    padding-top: 30px;
+}
+
+.NEWS_container iframe {
+    max-width:800px;
+    display: block;
+    width: 100%;
+    height: 2000px;
+    margin: 0 auto;
+}
+
+
+/*  レスポンシブル  */
+
+@media (max-width: 600px) {
+    .NEWS_container iframe {
+        display: block;
+        width: 100%;
+        height: 1000px;
+        margin: 0 auto;
+      }
+}

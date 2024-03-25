@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.ABOUT_topic {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ABOUT_sub img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.ABOUT_container h2 {
+    padding-top: 30px;
+}
+
+.ABOUT_topic h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.t1 {
+    margin-bottom: 60px;
+}
+
+.ABOUT_text {
+    box-sizing: border-box;
+    line-height: 2.0;
+    margin-bottom: 30px;
+    padding: 0 1.25%;
+}
+
+.ABOUT_text span {
+    color: #ed6969;
+}
+
+/*  レスポンシブル  */
+
+@media (max-width: 600px) {
+    .ABOUT_topic h3 {
+        font-size: 1.25em;  /*20px*/
+        font-weight: 500;
+      }
+
+      .ABOUT_topic {
+        box-sizing: border-box;
+        padding: 0 5%;  /*40px*/
+        margin: 0 auto;
+      }
+}

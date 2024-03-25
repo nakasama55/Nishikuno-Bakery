@@ -1,0 +1,732 @@
+@charset "UTF-8";
+
+html {
+	overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+/*** ハンバーガーメニュー ***/
+  #nav-toggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    height: 32px;
+    cursor: pointer;
+    
+    > div {
+      position: relative;
+      width: 36px;
+    }
+    span {
+      width: 100%;
+      height: 2px;
+      left: 0;
+      display: block;
+      background: #0d559c;
+      position: absolute;
+      transition: transform .6s ease-in-out, top .5s ease;
+      
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 14px;
+      }
+      &:nth-child(3) {
+        top: 28px;
+      }
+    }
+  
+    &:hover span:nth-child(1) {
+      top: 4px;
+    }
+    &:hover span:nth-child(3) {
+      top: 23px;
+    }
+  
+  }
+  
+  .open {
+    #nav-toggle span {
+      background: #fff;
+      
+      &:nth-child(1) {
+        top: 15px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        top: 15px;
+        width: 0;
+        left: 50%;
+      }
+      &:nth-child(3) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  
+  /* z-index */
+  #nav-toggle {
+    z-index: 1000;
+  }
+  #container {
+    z-index: 900;
+  }
+  
+  #gloval-nav {
+    background: rgba(5, 33, 61, 0.9);
+    color: #fff;
+    font-family: "Prestige Elite Std";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 990;
+    text-align: center;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    line-height: 2.0;
+    opacity: 0;
+    transition: opacity .6s ease, visibility .6s ease;
+  }
+  
+  
+  #gloval-nav {
+    a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+      transition: color .6s ease;
+      
+      &:hover {
+        color: #ed6969;
+      }
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        opacity: 0;
+        transform: translateX(200px);
+        transition:  transform .6s ease, opacity .2s ease;
+  
+        &:nth-child(2) {
+          transition-delay: .15s;
+        }
+        &:nth-child(3) {
+          transition-delay: .3s;
+        }
+        &:nth-child(4) {
+          transition-delay: .45s;
+        }
+        &:nth-child(5) {
+          transition-delay: .6s;
+        }
+        &:nth-child(6) {
+          transition-delay: .75s;
+        }
+        &:nth-child(7) {
+          transition-delay: .9s;
+        }
+      }
+    }
+  } 
+  
+  /* open */
+  .open {
+    overflow: hidden;
+    
+    #gloval-nav {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    #gloval-nav li {
+      opacity: 1;
+      transform: translateX(0);
+      transition:  transform 1s ease, opacity .9s ease;
+    }
+  }
+
+.nav_logo {
+  padding-bottom: 30px;
+}
+
+/*** TOP全体 ***/
+h1,h2,h3,h4,h5,h6,p,li,dt,dd,small {
+    color: #3d3d3d;
+}
+
+.more {
+    text-decoration: none;
+    color: #0d559c;
+    font-size: 1.125em;  /*18px*/
+}
+
+h2 {
+    color: #3d3d3d;
+    font-size: 0.75em;  /*12px*/
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+h2 strong {
+    font-family: "Prestige Elite Std";
+    color: #0d559c;
+    font-size: 2.5em;  /*40px*/
+}
+
+h3 {
+    font-size: 1.5em;  /*24px*/
+    font-weight: 400;
+    line-height: 1.75em;  /**/
+    margin-bottom: 30px;
+}
+
+/*フェードイン前*/
+.js-fade {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);  
+    transition: opacity 1s,visibility 1s, transform 1s;
+}
+
+/*フェードイン前*/
+.scroll {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
+
+/*cssフェード*/
+.css-fadein {
+  animation-name: fadein;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadein {
+  0% {
+     opacity: 0;
+     transform: translateY(20px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
+
+
+
+/*** ナビゲーション ***/
+#navigation {
+    height: 50px;
+    width: 100%;
+    background: #e9f5ff;
+    color: #0d559c;
+    text-align: center;
+    font-family: "Prestige Elite Std";
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+#navigation nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+#navigation   nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: #0d559c;
+    font-size: 1.125em;  /*18px*/
+    transition:all 0.3s;
+    height: 100%;
+  }
+
+  #navigation nav ul li a:hover{
+    color: #ed6969;
+  }
+
+ .N_shade {
+    background: #0d559c;
+    width: 80px;
+    height: 50px;
+    transform:skewX(-20deg);
+ }
+
+ .N_shade img {
+    transform:translate(0, 5px) skewX(20deg);
+ }
+
+ .N_shade::after {
+    content: "";
+    width: 80px;
+    height: 20px;
+    background: #0d559c;
+    position: absolute;
+    bottom: -20px;
+    left: 4px;
+    transform:skewX(20deg);
+ }
+
+ .N_shade a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+
+/*** TOP_header ***/
+header {
+    padding : 35px 2.04% 30px 2.04%;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+}
+
+.Top_logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Top_comment {
+    position: relative;
+    padding: 0 25px;
+}
+
+.Top_comment::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    left: 0;
+    top: 10px;
+    display: block;
+    transform: rotate(60deg);
+    background: #3d3d3d;
+    position: absolute;
+}
+
+.Top_comment::after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    right: 0;
+    bottom: 5px;
+    display: block;
+    transform: rotate(-60deg);
+    background: #3d3d3d;
+    position: absolute;
+}
+
+/*** メイン ***/
+.slick01 li img {
+    margin: 0 auto;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+
+/*** TOP_Concept ***/
+.TOP_Concept {
+    max-width: 800px;
+    width: 100%;
+    margin: 60px auto;
+}
+
+.TOP_Concept h3 {
+    text-align: center;
+}
+
+.TOP_Concept p {
+    line-height: 2.25em;  /*36pt*/
+    margin-bottom: 30px;
+}
+
+.TOP_Concept p:nth-child(4) {
+    box-sizing: border-box;
+    padding: 0 2.5%;
+}
+
+.TOP_Concept p:nth-child(5) {
+    text-align: center;
+  }
+
+.TOP_Concept p img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+}
+
+
+/*** TOP_About ***/
+.TOP_About {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+}
+
+.TOP_About_text {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 2.5%; /*10px*/
+}
+
+.TOP_About_text h3 {
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.TOP_About_text p {
+    line-height: 2em;  /*32pt*/
+    margin-bottom: 20px;
+}
+
+.TOP_About img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+/*** Top_Menu ***/
+.slider {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slider li {
+    margin: 0  5px;
+}
+
+.slider li img {
+   width: 100%;
+   height: auto;
+}
+
+.TOP_Menu p {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.TOP_Menu ul {
+  padding-bottom: 15px;
+}
+
+/*** TOP_News ***/
+.TOP_News_container {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.TOP_News iframe {
+    max-width: 800px;
+    width: 100%;
+    height: 7em;
+    margin: 0 auto;
+}
+
+/*.TOP_News h2 {
+    margin-bottom: 40px;
+}*/
+
+.TOP_News_container p {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/*** TOP_Shopinfo ***/
+#TOP_Shopinfo {
+    padding-top: 80px; /* 調整したい高さ（固定ヘッダーの高さ） */
+    margin-top: -80px; /* heightと同じ分のネガティブマージン */
+}
+
+.TOP_Shopinfo_box {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.TOP_Shopinfo_box dl {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0 2%;
+}
+
+.TOP_Shopinfo_box span {
+    font-size: 0.75em;  /*12px*/
+    font-weight: 500;
+}
+
+.TOP_Shopinfo_box dl dt {
+    font-size: 1.25em;  /*20px*/
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.TOP_Shopinfo_box dl dd {
+    margin-bottom: 10px;
+}
+
+.TOP_Shopinfo_box img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.SHOP_tell {
+    font-size: 1.25em;  /*20px*/
+    color: #0d559c;
+    font-weight: 500;
+}
+
+.SHOP_hour,
+.SHOP_holiday,
+.SHOP_way {
+    line-height: 1.5;
+}
+
+.SHOP_way {
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+.SHOP_way span{
+    font-size: 1em;
+    color: #ed6969;
+    font-weight: 400;
+}
+
+.SHOP_map {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.g-map {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 30px;
+}
+
+
+/*** footer ***/
+footer {
+    width: 100%;
+}
+
+.footer_band {
+    background: #e9f5ff;
+    display: flex;
+    width: 100%;
+    height: 70px;
+}
+
+.blueshade_logo {
+    background: #0d559c;
+    width: 80px;
+    height: 70px;
+    transform:skewX(-20deg);
+    position: relative;
+    left: 50px;
+ }
+
+ .blueshade_logo img {
+    transform:skewX(20deg);
+    position: absolute;
+    left: 15px;
+    top: 5px;  
+ }
+
+ .blueshade_logo::after {
+    content: "";
+    width: 80px;
+    height: 20px;
+    background: #0d559c;
+    position: absolute;
+    bottom: -19px;
+    left: 4px;
+    transform:skewX(20deg);
+ }
+
+.footer_links {
+    width: 15vw;
+    height: 80px;    
+    color: #0d559c;
+    display: block;
+    padding-left: 80px;
+}
+
+.footer_links:nth-child(odd){
+    width: 240px;
+}
+
+.footer_links+.footer_links {
+    padding-left: 0px;
+}
+
+.footer_links li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875em;  /*14px*/
+    line-height: 1.8;
+}
+
+.Copyright {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.Copyright small {
+    font-size: 0.625em;  /*10px*/ 
+}
+
+
+
+/*  レスポンシブル  */
+.ham {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .ham {
+        display: block;
+    }
+
+    #navigation {
+        display: none;
+    }
+
+
+    /** header **/
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .Top_logo {
+        order: 1;
+    }
+
+    .Top_comment {
+        order: 2;
+        margin: 15px auto 0;
+    }
+
+    .Top_comment::before {
+      display: none;
+    }
+    
+    .Top_comment::after {
+      display: none;
+    }
+
+
+    /** Concept **/
+    .TOP_Concept {
+      box-sizing: border-box;
+      padding: 0 5%;  /*40px*/
+    }
+    
+    .TOP_Concept h3 {
+      font-size: 1.25em;  /*20px*/
+      font-weight: 500;
+    }
+
+
+    /** About **/
+    .TOP_About {
+      box-sizing: border-box;
+      padding: 0 5% 40px;  /*40px*/
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .TOP_About h3{
+      text-align: center;
+      font-size: 1.25em;  /*20px*/
+      font-weight: 500;     
+    }
+
+    .TOP_About p {
+      text-align: center;
+    }
+
+    .TOP_About_text p:nth-child(3) {
+      text-align: center;
+    }
+
+    .TOP_About_text {
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    /** News **/
+    .TOP_News_container {
+      box-sizing: border-box;
+      padding: 0 5% 80px;
+    }
+
+
+    /** Shopinfo **/
+    #TOP_Shopinfo {
+      padding: 80px 5% 10px; /* 調整したい高さ（固定ヘッダーの高さ） */
+      margin-top: -80px; /* heightと同じ分のネガティブマージン */
+  }
+
+
+    .TOP_Shopinfo_box {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;   
+    }
+
+    .TOP_Shopinfo_box dl {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .TOP_Shopinfo_box img {
+      width: 100%;
+      order: 1;
+      margin-bottom: 10px;
+    }
+
+    .g-map {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 0px;
+    }
+
+    /* footer */
+    .footer_band {
+      display: none;
+    }
+  }
